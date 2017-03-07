@@ -1,0 +1,12 @@
+
+<section class="todo-list">
+
+  <div class="edit-form">
+    <%= form_for @todo_list, remote: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.text_field :title, autofocus: true, placeholder: "Type title here...", class: 'form-control' %><br>
+      <%= f.submit "Change title", class: "btn btn-primary btn-submit" %>
+    <% end %>
+  </div>
+
+</section>

@@ -1,0 +1,6 @@
+
+  var t = document.createElement("LI");
+  t.setAttribute("id", "task-<%=@task.id%>");
+  t.className = "list-group-item";
+  t.innerHTML = " <%= j (render @task) %> ";
+  $('#list-group-<%=@task.todo_list_id%>').append(t);

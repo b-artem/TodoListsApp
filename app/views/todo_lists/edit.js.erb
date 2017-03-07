@@ -1,0 +1,13 @@
+
+if ($(".edit-todo-list").length === 0) {
+  var tdl_form = document.createElement("DIV");
+  tdl_form.setAttribute("id", "todo-list-form");
+  tdl_form.className = "edit-todo-list";
+
+  tdl_form.innerHTML = " <%= j (render 'todo_list_form') %> ";
+
+  $('#list-header-<%=params[:id]%>').after(tdl_form);
+} else {
+  alert("Please save the current TODO list before edit another one");
+  $('html, body').animate({ scrollTop: $("#todo-list-form").parent().offset().top }, 500);
+}

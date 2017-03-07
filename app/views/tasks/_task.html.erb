@@ -1,0 +1,15 @@
+
+
+        <%= link_to change_state_task_path(@task.id), remote: true, method: :patch do %>
+          <% if task.done %>
+            <input id="item-input-<%=@task.id%>" type="checkbox" checked>
+          <% else %>
+            <input id="item-input-<%=@task.id%>" type="checkbox">
+          <% end %>
+        <% end %>
+
+        <span id='body-<%=@task.id%>'><%= @task.body %></span>
+        <%= link_to '', task, remote: true, method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash delete" %>
+        <%= link_to '', edit_task_path(@task.id), remote: true, class: "glyphicon glyphicon-pencil edit" %>
+        <%= link_to '', priority_down_task_path(@task.id), remote: true, method: :patch, class: "glyphicon glyphicon-arrow-down" %>
+        <%= link_to '', priority_up_task_path(@task.id), remote: true, method: :patch, class: "glyphicon glyphicon-arrow-up" %>

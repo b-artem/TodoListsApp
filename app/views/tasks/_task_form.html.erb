@@ -1,0 +1,11 @@
+
+<div class="change-task-form">
+  <br>
+  <%= form_for @task, remote: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.text_field :body, autofocus: true, placeholder: "Type task content here...", value: @task.body, class: 'form-control' %>
+    <%= f.date_field :deadline, value: @task.deadline, class: 'form-control' %>
+    <%= f.submit "Change task", class: "btn btn-primary btn-submit" %>
+  <% end %>
+  <br>
+</div>

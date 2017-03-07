@@ -1,0 +1,21 @@
+<div class="login">
+  <div class="container">
+    <div class="form login-form">
+
+      <h3>Log in to your account</h3><br>
+
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+      <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.email_field :email, autofocus: true, :placeholder => "Email", class: 'form-control' %><br>
+        <%= f.password_field :password, :placeholder => "Password", class: 'form-control' %><br>
+        <%= f.submit "Log in", class: "btn btn-login btn-primary btn-submit" %>
+      <% end %>
+
+      <br><h4>New user? <%= link_to "Sign up now!", signup_path %></h4>
+
+    </div>
+  </div>
+</div>

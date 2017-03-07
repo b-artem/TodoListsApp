@@ -1,0 +1,21 @@
+<div class="login">
+  <div class="container">
+    <div class="form login-form">
+
+      <h3>Sign up</h3><br>
+
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.text_field :name, autofocus: true, :placeholder => "Name", class: 'form-control' %><br>
+        <%= f.email_field :email, :placeholder => "Email", class: 'form-control' %><br>
+        <%= f.password_field :password, :placeholder => "Password", class: 'form-control' %><br>
+        <%= f.password_field :password_confirmation, :placeholder => "Password confirmation", class: 'form-control' %><br>
+        <%= f.submit "Create my account", class: "btn btn-login btn-primary btn-submit" %>
+      <% end %>
+      
+      <br><h4>Registered user? <%= link_to "Log in!", login_path %></h4>
+
+    </div>
+  </div>
+</div>

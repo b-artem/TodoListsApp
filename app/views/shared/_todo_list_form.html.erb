@@ -1,0 +1,8 @@
+<div class="add-list">
+  <%= form_for(@todo_list) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.submit "Add TODO List", class: "btn-add-list" %>
+  <% end %>
+</div>
+
+<!--<span class="glyphicon glyphicon-plus"></span>  -->

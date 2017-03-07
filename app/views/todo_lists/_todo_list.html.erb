@@ -1,0 +1,58 @@
+
+<div id="todo-list-<%=todo_list.id%>">
+
+  <div id="list-header-<%=todo_list.id%>" class="list-header">
+    <span class="glyphicon glyphicon-calendar left-icon"></span>
+    <p id="title-<%=todo_list.id%>"><%= todo_list.title %></p>
+    <%= link_to '', edit_todo_list_path(todo_list.id), remote: true, class: "glyphicon glyphicon-pencil right-btn" %>
+    <%= link_to '', todo_list, remote: true, method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash right-btn" %>
+  </div>
+
+	<div class="add-task-panel">
+    <%= form_for [todo_list, todo_list.tasks.build], remote: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <span class="glyphicon glyphicon-plus left-icon"></span>
+      <%= f.text_field :body, placeholder: "Start typing here to create a task...", class: 'task-input' %>
+      <%= f.submit "Add Task", class: "btn btn-primary add-task-btn" %>
+    <% end %>
+  </div>
+
+  <div class="tasks">
+    <div id="list-group-<%=todo_list.id%>" class="list-group task-list">
+    <% if todo_list.tasks.count > 0 %>
+
+
+        <% for i in 0..todo_list.tasks.count-1 %>
+          <% id = todo_list.tasks[i].id %>
+          <% task = todo_list.tasks[i] %>
+
+            <% if task.done %>
+              <li id='task-<%=id%>' class="list-group-item checked">
+            <% else %>
+              <li id='task-<%=id%>' class="list-group-item">
+            <% end %>
+
+              <%= link_to change_state_task_path(id), remote: true, method: :patch do %>
+                <% if task.done %>
+                  <input id="item-input-<%=id%>" type="checkbox" checked>
+                <% else %>
+                  <input id="item-input-<%=id%>" type="checkbox">
+                <% end %>
+              <% end %>
+
+              <span id='body-<%=id%>'><%= task.body %></span>
+              <%= link_to '', task, remote: true, method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-trash delete" %>
+              <%= link_to '', edit_task_path(id), remote: true, class: "glyphicon glyphicon-pencil edit" %>
+              <%= link_to '', priority_down_task_path(id), remote: true, method: :patch, class: "glyphicon glyphicon-arrow-down" %>
+              <%= link_to '', priority_up_task_path(id), remote: true, method: :patch, class: "glyphicon glyphicon-arrow-up" %>
+            </li>
+
+        <% end %>
+
+      </div>
+    <% else %>
+        <!-- <h4 class="message">You don't have any task in this project yet</h4><br> -->
+    <% end %>
+  </div>
+
+</div>

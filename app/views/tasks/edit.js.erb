@@ -1,0 +1,13 @@
+
+if ($(".change-task-item").length === 0) {
+  var tf = document.createElement("list-group-item");
+  tf.setAttribute("id", "item-task-form");
+  tf.className = "change-task-item";
+
+  tf.innerHTML = " <%= j (render 'task_form') %> ";
+
+  $('#task-<%=params[:id]%>').after(tf);
+} else {
+  alert("Please save the current task before edit another one");
+  $('html, body').animate({ scrollTop: $("#item-task-form").parent().parent().parent().offset().top }, 500);
+}

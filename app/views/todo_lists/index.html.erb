@@ -1,0 +1,25 @@
+
+<%= render 'layouts/header' %>
+
+<header class="container title">
+  <h1>Simple Todo Lists</h1>
+  <h4>From Ruby Garage</h4>
+</header>
+
+<section class="todo-list">
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%=key %>"><%= value %></div>
+  <% end %>
+
+  <% if current_user.todo_lists.count > 0 %>
+    <%= render @todo_lists %>
+  <% else %>
+    <h3 class="message">You don't have any TODO lists yet</h3>
+  <% end %>
+
+  <div class="add-list">
+    <%= render 'shared/todo_list_form' %>
+  </div>
+
+</section>
