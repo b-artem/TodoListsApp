@@ -1,6 +1,6 @@
 # README
 
-This is the SIMPLE TODO LISTS App
+##This is the SIMPLE TODO LISTS App
 
 It allows you to:
 
@@ -19,7 +19,7 @@ It allows you to:
 
 
 
-SQL task
+##SQL task
 
 Given tables:
 - tasks(id, name, status, project_id)
