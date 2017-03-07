@@ -16,7 +16,10 @@ It allows you to:
 
 * Mark task as "done"
 
-* SQL task
+
+
+
+SQL task
 
 Given tables:
 - tasks(id, name, status, project_id)
