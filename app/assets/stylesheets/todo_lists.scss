@@ -188,6 +188,12 @@ body {
 
 .list-group-item:hover .glyphicon {
 	visibility: visible;
+	// color: #fff;
+}
+
+.list-group-item:hover .glyphicon {
+	visibility: visible;
+	// color: rgb(153,153,153);
 }
 
 .task-list li {
@@ -228,7 +234,7 @@ body {
 
 .task-list li .glyphicon {
 	font-size: 12px;
-	color: rgb(153,153,153);
+	color: rgb(170,170,170);
   float: right;
   padding: 0 10px;
 	margin-top: 15px;
