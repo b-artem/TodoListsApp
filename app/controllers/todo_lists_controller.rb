@@ -40,9 +40,9 @@ class TodoListsController < ApplicationController
   end
 
   def destroy
-    TodoList.destroy(params[:id])
-    #flash.now[:success] = "TODO list deleted"
     render js: "$('#todo-list-#{params[:id]}').remove();"
+    TodoList.destroy(params[:id])
+    #flash.now[:success] = "Todo list deleted"
   end
 
     private
